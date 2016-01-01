@@ -252,7 +252,7 @@ class NSP_GK5_View {
 	}
 	
 	// Get image HTML code
-	static function getImageHTML($only_url, $IMG_SOURCE, $links, $config, $IMG_LINK, $full_size_img, $alt_text = '', $featured_state = false) {
+	static function getImageHTML($only_url, $IMG_SOURCE, $links, $config, $IMG_LINK, $full_size_img, $item) {
 		if($only_url) {
 			return $IMG_SOURCE;
 		} else {
@@ -317,12 +317,6 @@ class NSP_GK5_View {
 			//
 			$img_link = $IMG_LINK;
 			$img_class = 'nspImageWrapper' . $class;
-
-			if($links && $config['links_image_position'] == 'right') {
-				$img_class .= ' nspImageWrapperRight';
-			}
-
-			$img_output = '';
 			
 			if($size != '') {
 				$size = ' style="'.$size.'"';
@@ -344,37 +338,16 @@ class NSP_GK5_View {
 			}
 			
 			$img_attrs = ' class="nspImage" src="'.$IMG_SOURCE.'"';
-			$img_attrs .= ' alt="'.$alt_text.'" '.$size;
-			
-			if(
-				($config['news_image_link'] == 1 && !$links) || 
-				($links && $config['links_image_link'] == 1)
-			) {
+			$img_attrs .= ' alt="'.htmlspecialchars($item['title']).'" '.$size;
+			$img_output = ""; 
+			if($config['news_image_link'] == 1 || $links) {
 				$img_output .= '<a href="'.$img_link.'" '.$img_link_attrs.'>';
 			} else {
 				$img_output .= '<span '.$img_link_attrs.'>';
 			}
-			
 			$img_output .= '<img '.$img_attrs.' />';
-			$badge = '';
-
-			if(
-				$featured_state && 
-				(
-					$config['data_source'] === 'com_virtuemart' ||
-					$config['data_source'] === 'com_virtuemart_categories'
-				) &&
-				$config['vm_show_featured_badge']
-			) {
-            	$badge = '<sup class="nspBadge">'.JText::_('MOD_NEWS_PRO_GK5_NSP_FEATURED').'</sup>';
-        	}
-
-        	$img_output = $img_output . $badge;
-
-			if(
-				($config['news_image_link'] == 1 && !$links) || 
-				($links && $config['links_image_link'] == 1)
-			) {
+			
+			if($config['news_image_link'] == 1 || $links) {
 				$img_output .= '</a>';
 			} else {
 				$img_output .= '</span>';

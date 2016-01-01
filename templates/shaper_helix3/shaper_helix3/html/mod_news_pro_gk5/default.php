@@ -42,7 +42,7 @@ if($this->config['links_position'] != 'bottom' && $this->config['news_short_page
 							) : ?>
 					<ul class="nspPagination">
 						<?php for($i = 0; $i < ceil(count($news_html_tab) / ($this->config['news_column'] * $this->config['news_rows'])); $i++) : ?>
-						<li><a href="#"><?php echo $i+1; ?></a></li>
+						<li><?php echo $i+1; ?></li>
 						<?php endfor; ?>
 					</ul>
 					<?php endif; ?>
@@ -51,8 +51,8 @@ if($this->config['links_position'] != 'bottom' && $this->config['news_short_page
 								$this->config['top_interface_style'] == 'arrows' || 
 								$this->config['top_interface_style'] == 'arrows_with_pagination'
 							) : ?>
-					<a href="#" class="nspPrev"><?php echo JText::_('MOD_NEWS_PRO_GK5_NSP_PREV'); ?></a>
-					<a href="#" class="nspNext"><?php echo JText::_('MOD_NEWS_PRO_GK5_NSP_NEXT'); ?></a>
+					<span class="nspPrev"><?php echo JText::_('MOD_NEWS_PRO_GK5_NSP_PREV'); ?></span>
+					<span class="nspNext"><?php echo JText::_('MOD_NEWS_PRO_GK5_NSP_NEXT'); ?></span>
 					<?php endif; ?>
 				</div>
 				<?php endif; ?>
@@ -77,23 +77,9 @@ if($this->config['links_position'] != 'bottom' && $this->config['news_short_page
 						<?php endif; ?>
 					<?php endfor; ?>
 					</div>
-
-					<?php 
-						if(isset($this->config['articles_link']) && $this->config['articles_link'] == '1') : 
-							$article_bottom_url = $this->config['articles_link_url'];	
-					?>
-					<a href="<?php echo $article_bottom_url; ?>" class="readon-button">
-						<?php if($this->config['articles_link_label'] != '') : ?>
-							<?php echo $this->config['articles_link_label']; ?>
-						<?php else : ?>
-							<?php echo JText::_('MOD_NEWS_PRO_GK5_ARTICLES_LINK_LABEL_DEFAULT'); ?>
-						<?php endif; ?>
-					</a>
-					<?php endif; ?>
 				</div>
 			</div>
 		<?php endif; ?>
-
 		<?php if($this->config['news_short_pages'] > 0 && count($news_list_tab) > 0 ) : ?>
 		<div class="nspLinksWrap<?php echo ' '.$this->config['links_position']; ?>" style="width:<?php echo $links_width-0.1; ?>%;">
 			<div class="nspLinks" style="margin:<?php echo $this->config["links_margin"]; ?>;">
@@ -167,5 +153,4 @@ if($this->config['links_position'] != 'bottom' && $this->config['news_short_page
 		<?php endif; ?>
 	</div>
 <?php else : ?>
-	<p><?php echo JText::_('MOD_NEWS_PRO_GK5_NSP_ERROR'); ?></p>
 <?php endif; ?>
