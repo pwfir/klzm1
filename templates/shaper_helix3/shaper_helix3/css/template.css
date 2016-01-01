@@ -1116,10 +1116,12 @@ body {
   line-height: 24px;
 }
 a,
-a:hover,
 a:focus,
 a:active {
   text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
 }
 label {
   font-weight: normal;
@@ -1348,9 +1350,10 @@ textarea.uneditable-input {
   width: 100%;
 }
 #sp-top-bar {
-  padding: 8px 0;
+  padding: 8px 0px 6px 0px;
 }
-#sp-top-bar .sp-module {
+#sp-top-bar line-height: 10px
+	.sp-module {
   display: inline-block;
   margin: 0 0 0 20px;
 }
@@ -2082,4 +2085,20 @@ table.category tbody >tr td {
   color: #fff;
   -webkit-transition: 300ms;
   transition: 300ms;
+}
+#sp-top-bar {
+  line-height: 10px;
+  padding-bottom: 6px;
+}
+.sppb-addon-title {
+  padding-left: 10px;
+  text-transform: uppercase;
+  border-bottom: 5px solid #eee;
+}
+.sp-default-logo {
+  position: relative;
+  top: 0px;
+}
+#sp-main-body {
+  padding: 50px 0px;
 }

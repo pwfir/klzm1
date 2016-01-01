@@ -85,9 +85,9 @@ jQuery(function($) {
                 $('.post_rating .ajax-loader').hide();
 
                 if (data.status == 'invalid') {
-                    $('.post_rating .voting-result').text('You have already rated this entry!').fadeIn('fast');
+                    $('.post_rating .voting-result').text('Oddałeś już swój głos!').fadeIn('fast');
                 }else if(data.status == 'false'){
-                    $('.post_rating .voting-result').text('Somethings wrong here, try again!').fadeIn('fast');
+                    $('.post_rating .voting-result').text('Coś poszło nie tak. Sróbuj raz jeszcze!').fadeIn('fast');
                 }else if(data.status == 'true'){
                     var rate = data.action;
                     $('.voting-symbol').find('.star').each(function(i) {
@@ -96,13 +96,13 @@ jQuery(function($) {
                         }
                     });
 
-                    $('.post_rating .voting-result').text('Thank You!').fadeIn('fast');
+                    $('.post_rating .voting-result').text('Dziekujemy!').fadeIn('fast');
                 }
 
             },
             error: function(){
                 $('.post_rating .ajax-loader').hide();
-                $('.post_rating .voting-result').text('Failed to rate, try again!').fadeIn('fast');
+                $('.post_rating .voting-result').text('Bład. Sróbuj raz jeszcze!').fadeIn('fast');
             }
         });
     });

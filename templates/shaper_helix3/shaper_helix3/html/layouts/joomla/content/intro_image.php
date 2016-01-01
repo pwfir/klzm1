@@ -15,6 +15,7 @@ $images 		= json_decode($displayData->images);
 $imgsize 		= $tplParams->get('blog_list_image', 'default');
 $intro_image 	= '';
 
+
 if(isset($attribs->spfeatured_image) && $attribs->spfeatured_image != '') {
 
 	if($imgsize == 'default') {
@@ -43,10 +44,19 @@ if(isset($attribs->spfeatured_image) && $attribs->spfeatured_image != '') {
 	<?php if ($images->image_intro_caption):
 			echo 'class="caption"' . ' title="' . htmlspecialchars($images->image_intro_caption) . '"';
 			endif; ?>
-	src="<?php echo htmlspecialchars($intro_image); ?>" alt="<?php echo htmlspecialchars($images->image_intro_alt); ?>" itemprop="thumbnailUrl"/>
+	src="<?php echo htmlspecialchars($intro_image); ?>" alt="<?php if (htmlspecialchars($images->image_intro_alt) != ''){
+	echo htmlspecialchars($images->image_intro_alt); }
+	else {
+	echo $this->escape($displayData->title);
+	} ?>" itemprop="thumbnailUrl"/>
 
 	<?php if ($params->get('link_titles') && $params->get('access-view')) { ?>
 		</a>
 	<?php } ?>
+	
 </div>
+<?php if ($params->get('gallery_caption')!="") {
+			 ?><div><p class="pcap"><?php echo $params->get('gallery_caption'); ?></p></div><?php
+			}
+			 ?>
 <?php } ?>
