@@ -1,6 +1,6 @@
 <?php
 /**
-* Default template
+* Default template Edit
 * @package News Show Pro GK5
 * @Copyright (C) 2009-2013 Gavick.com
 * @ All rights reserved
