@@ -15,7 +15,6 @@ $images 		= json_decode($displayData->images);
 $imgsize 		= $tplParams->get('blog_list_image', 'default');
 $intro_image 	= '';
 
-
 if(isset($attribs->spfeatured_image) && $attribs->spfeatured_image != '') {
 
 	if($imgsize == 'default') {

@@ -13,7 +13,6 @@ $attribs 		= json_decode($displayData->attribs);
 $images 		= json_decode($displayData->images);
 $full_image 	= '';
 
-
 if(isset($attribs->spfeatured_image) && $attribs->spfeatured_image != '') {
 	$full_image = $attribs->spfeatured_image;
 } elseif(isset($images->image_fulltext) && !empty($images->image_fulltext)) {
@@ -26,13 +25,10 @@ if(isset($attribs->spfeatured_image) && $attribs->spfeatured_image != '') {
 	<div class="entry-image full-image"> <img
 		<?php if ($images->image_fulltext_caption):
 		echo 'class="caption"' . ' title="' . htmlspecialchars($images->image_fulltext_caption) . '"';
-		endif; ?>
-		src="<?php echo htmlspecialchars($full_image); ?>" alt="<?php if ($images->image_fulltext_alt != ''){echo htmlspecialchars($images->image_fulltext_alt);} 
+		endif; ?>src="<?php echo htmlspecialchars($full_image); ?>" alt="<?php if ($images->image_fulltext_alt != ''){echo htmlspecialchars($images->image_fulltext_alt);} 
 		else {echo $this->escape($displayData->title);} ?>" itemprop="image"/> 
 		<?php if ($params->get('gallery_caption')!="") {
 			 ?><p class="pcap"><?php echo $params->get('gallery_caption'); ?></p><?php
 			}
 			 ?></div>
 <?php } ?>
-
-

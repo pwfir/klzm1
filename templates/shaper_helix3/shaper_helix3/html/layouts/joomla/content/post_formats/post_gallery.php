@@ -38,18 +38,17 @@ if($displayData['params']->get('gallery')) {
 					}
 				?>
 			</div>
-
 			<?php if ($displayData['params']->get('gallery_caption')!="") {
 			 ?><p class="pcap"><?php echo $displayData['params']->get('gallery_caption'); ?></p><?php
 			}
 			 ?>
 			<a class="carousel-left" href="#carousel-gallery-<?php echo $displayData['item']->id; ?>" role="button" data-slide="prev">
 				<span class="fa fa-angle-left" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
+				<span class="sr-only">Poprzednie zdjęcie</span>
 			</a>
 			<a class="carousel-right" href="#carousel-gallery-<?php echo $displayData['item']->id; ?>" role="button" data-slide="next">
 				<span class="fa fa-angle-right" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
+				<span class="sr-only">Następne zdjęcie</span>
 			</a>
 		</div>
 
