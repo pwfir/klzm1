@@ -12,7 +12,7 @@
 defined('_JEXEC') or die('Restricted accessd');
 
 // Check for the framework, if not found eject
-include_once JPATH_LIBRARIES . '/xef/bootstrap.php';
+include_once JPATH_LIBRARIES . '/xef/bootstrap.php'; 
 
 if( !defined('XEF_INCLUDED'))
 {

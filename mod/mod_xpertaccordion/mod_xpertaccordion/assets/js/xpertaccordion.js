@@ -17,7 +17,8 @@
 jQuery(document).ready( function () {
 //Set default open/close settings
     jQuery('.xac-container').hide(); //Hide/close all containers
-    jQuery('.xac-trigger:first').addClass('active').next().show(); //Add "active" class to first trigger, then show/open the immediate next container
+ //  jQuery('.xac-trigger:first').addClass('active').next().show();
+ // Add "active" class to first trigger, then show/open the immediate next container
 
     //On Click
     jQuery('.xac-trigger').click(function(){

@@ -14,7 +14,7 @@ $count = count($list);
 $i = 0;
 
 ?>
-    <!--Xpert Accordion v-1.0-3-G424E763 by ThemeXpert- Start-->
+  
    <div id="<?php echo $module_id;?>" class="xac-wrapper <?php echo $params->get('style');?>">
    <?php foreach($lists as $item):?>
        <h3 class="xac-trigger">
@@ -25,5 +25,5 @@ $i = 0;
        </div>
    <?php endforeach ;?>
    </div>
-   <!--Xpert Accordion v-1.0-3-G424E763 by ThemeXpert- End-->
+
 
