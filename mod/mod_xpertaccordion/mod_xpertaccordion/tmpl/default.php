@@ -14,9 +14,9 @@ $i = 0;
     <!--Xpert Accordion (version 1.0-3-G424E763) by ThemeXpert- Start-->
     <div id="<?php echo $module_id;?>" class="xac-wrapper <?php echo $params->get('theme');?>">
     <?php foreach($lists as $item):?>
-        <h3 class="xac-trigger">
+        <h4 class="xac-trigger">
             <span><?php echo $item->title;?></span>
-        </h3>
+        </h4>
         <div class="xac-container">
             <?php echo $item->introtext;?>
         </div>
