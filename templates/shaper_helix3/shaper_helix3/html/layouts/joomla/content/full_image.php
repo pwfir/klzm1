@@ -25,10 +25,6 @@ if(isset($attribs->spfeatured_image) && $attribs->spfeatured_image != '') {
 	<div class="entry-image full-image"> <img
 		<?php if ($images->image_fulltext_caption):
 		echo 'class="caption"' . ' title="' . htmlspecialchars($images->image_fulltext_caption) . '"';
-		endif; ?>src="<?php echo htmlspecialchars($full_image); ?>" alt="<?php if ($images->image_fulltext_alt != ''){echo htmlspecialchars($images->image_fulltext_alt);} 
-		else {echo $this->escape($displayData->title);} ?>" itemprop="image"/> 
-		<?php if ($params->get('gallery_caption')!="") {
-			 ?><p class="pcap"><?php echo $params->get('gallery_caption'); ?></p><?php
-			}
-			 ?></div>
+		endif; ?>
+		src="<?php echo htmlspecialchars($full_image); ?>" alt="<?php echo htmlspecialchars($images->image_fulltext_alt); ?>" itemprop="image"/> </div>
 <?php } ?>

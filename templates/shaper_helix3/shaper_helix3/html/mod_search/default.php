@@ -16,12 +16,12 @@ defined('_JEXEC') or die;
 			$output = '';
 			$output .= '<input name="searchword" id="mod-search-searchword" maxlength="' . $maxlength . '"  class="inputbox search-query" type="text" size="' . $width . '" placeholder="' . $text . '" />';
 
-			
+			/*
 			if ($button) :
 				if ($imagebutton) :
 					$btn_output = ' <input type="image" value="' . $button_text . '" class="button" src="' . $img . '" onclick="this.form.searchword.focus();"/>';
 				else :
-					$btn_output = ' <button class="btn hasTooltip" onclick="this.form.searchword.focus();" data-original-title="Szukaj"><span class="icon-search"></span></button>';
+					$btn_output = ' <button class="button btn btn-primary" onclick="this.form.searchword.focus();">' . $button_text . '</button>';
 				endif;
 
 				switch ($button_pos) :
@@ -44,7 +44,7 @@ defined('_JEXEC') or die;
 				endswitch;
 
 			endif;
-			
+			*/
 
 			echo $output;
 		?>
