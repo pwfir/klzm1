@@ -61,6 +61,7 @@ JHtml::_('behavior.caption');
 					echo $this->loadTemplate('item');
 					?>
 				</article>
+				<div class="blogline"></div>
 				<?php $leadingcount++; ?>
 			<?php endforeach; ?>
 		</div><!-- end items-leading -->
@@ -87,6 +88,7 @@ JHtml::_('behavior.caption');
 					?>
 				</article>
 				<!-- end item -->
+				<div class="blogline"></div>
 				<?php $counter++; ?>
 			</div><!-- end col-sm-* -->
 			<?php if (($rowcount == $this->columns) or ($counter == $introcount)) : ?>

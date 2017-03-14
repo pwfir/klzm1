@@ -41,7 +41,7 @@ $post_format = $post_attribs->get('post_format', 'standard');
 	<?php echo JLayoutHelper::render('joomla.content.post_formats.icons',  $post_format); ?>
 
 	<?php if ($useDefList && ($info == 0 || $info == 2)) : ?>
-		<?php echo JLayoutHelper::render('joomla.content.info_block.block', array('item' => $this->item, 'params' => $params, 'position' => 'above')); ?>
+		<?php echo JLayoutHelper::render('joomla.content.info_block.blockcat', array('item' => $this->item, 'params' => $params, 'position' => 'above')); ?>
 	<?php endif; ?>
 	
 	<?php echo JLayoutHelper::render('joomla.content.blog_style_default_item_title', $this->item); ?>
@@ -61,7 +61,7 @@ $post_format = $post_attribs->get('post_format', 'standard');
 <?php echo $this->item->introtext; ?>
 
 <?php if ($useDefList && ($info == 1 || $info == 2)) : ?>
-	<?php echo JLayoutHelper::render('joomla.content.info_block.block', array('item' => $this->item, 'params' => $params, 'position' => 'below')); ?>
+	<?php echo JLayoutHelper::render('joomla.content.info_block.blockcat', array('item' => $this->item, 'params' => $params, 'position' => 'below')); ?>
 <?php  endif; ?>
 
 <?php if ($params->get('show_readmore') && $this->item->readmore) :
@@ -86,8 +86,6 @@ $post_format = $post_attribs->get('post_format', 'standard');
 </div>
 <?php endif; ?>
 
-<?php if ($params->get('show_tags') && !empty($this->item->tags->itemTags)) : ?>
-	<?php echo JLayoutHelper::render('joomla.content.tags', $this->item->tags->itemTags); ?>
-<?php endif; ?>
+
 
 <?php echo $this->item->event->afterDisplayContent; ?>

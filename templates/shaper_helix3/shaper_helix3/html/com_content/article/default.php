@@ -23,11 +23,33 @@ JHtml::_('behavior.caption');
 $useDefList = ($params->get('show_modify_date') || $params->get('show_publish_date') || $params->get('show_create_date')
 	|| $params->get('show_hits') || $params->get('show_category') || $params->get('show_parent_category') || $params->get('show_author'));
 
-	$post_format = $params->get('post_format', 'standard');
 
-	$has_post_format = $tpl_params->get('show_post_format');
+//get image
+$article_attribs 	= json_decode($this->item->attribs);
+$article_images 	= json_decode($this->item->images);
+$article_image 		= '';
+if(isset($article_attribs->spfeatured_image) && $article_attribs->spfeatured_image != '') {
+	$article_image 	= $article_attribs->spfeatured_image;
+} elseif(isset($article_images->image_fulltext) && !empty($article_images->image_fulltext)) {
+	$article_image 	= $article_images->image_fulltext;
+}
 
-	if($this->print) $has_post_format = false;
+//opengraph
+$document = JFactory::getDocument();
+$document->addCustomTag('<meta property="og:url" content="'.JURI::current().'" />');
+$document->addCustomTag('<meta property="og:type" content="article" />');
+$document->addCustomTag('<meta property="og:title" content="'. $this->item->title .'" />');
+$document->addCustomTag('<meta property="og:description" content="'. JHtml::_('string.truncate', $this->item->introtext, 155, false, false ) .'" />');
+if ($article_image) {
+	$document->addCustomTag('<meta property="og:image" content="'. JURI::root().$article_image.'" />');
+	$document->addCustomTag('<meta property="og:image:width" content="600" />');
+	$document->addCustomTag('<meta property="og:image:height" content="315" />');
+}
+
+$post_format = $params->get('post_format', 'standard');
+$has_post_format = $tpl_params->get('show_post_format');
+if($this->print) $has_post_format = false;
+
 
 ?>
 <article class="item item-page<?php echo $this->pageclass_sfx . ($this->item->featured) ? ' item-featured' : ''; ?>" itemscope itemtype="http://schema.org/Article">
@@ -57,7 +79,7 @@ $useDefList = ($params->get('show_modify_date') || $params->get('show_publish_da
 		<?php if (!$this->print && $useDefList && ($info == 0 || $info == 2)) : ?>
 			<?php echo JLayoutHelper::render('joomla.content.info_block.block', array('item' => $this->item, 'params' => $params, 'position' => 'above')); ?>
 		<?php endif; ?>
-		
+
 		<?php if ($params->get('show_title') || $params->get('show_author')) : ?>
 			<h2 itemprop="name">
 				<?php if ($params->get('show_title')) : ?>
@@ -166,8 +188,13 @@ if (!empty($this->item->pagination) && $this->item->pagination && $this->item->p
 	<?php echo $this->item->event->afterDisplayContent; ?>
 
 	<?php if(!$this->print) : ?>
-		<?php echo JLayoutHelper::render('joomla.content.social_share.share', $this->item); //Helix Social Share ?>
-		<?php echo JLayoutHelper::render('joomla.content.comments.comments', $this->item); //Helix Comment ?>
+		<div class="article-footer-wrap">
+			<div class="article-footer-top">
+				<?php echo JLayoutHelper::render('joomla.content.rating', array('item' => $this->item, 'params' => $params)) ?>
+				<?php echo JLayoutHelper::render('joomla.content.social_share.share', $this->item); //Helix Social Share ?>
+			</div>
+			<?php echo JLayoutHelper::render('joomla.content.comments.comments', $this->item); //Helix Comment ?>
+		</div>
 	<?php endif; ?>
-	
+
 </article>
