@@ -28,7 +28,7 @@ if(isset($attribs->spfeatured_image) && $attribs->spfeatured_image != '') {
 		src="<?php echo htmlspecialchars($full_image); ?>"
 		alt="<?php if ($images->image_fulltext_alt != ''){echo htmlspecialchars($images->image_fulltext_alt);} 
 		else {echo $this->escape($displayData->title);} ?>" itemprop="image" /> 
-		<?php if ($params->get('gallery_caption')!="") {
+		<?php if ($params->get('gallery_caption')!="" && $params->get('cap_yn')) {
 			 echo '<p class="pcap">'.$params->get('gallery_caption').'</p>';
 			}?>
 	</div>
