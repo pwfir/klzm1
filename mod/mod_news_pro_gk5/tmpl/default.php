@@ -1,6 +1,6 @@
 <?php
 /**
-* Default template Edit
+* Default template
 * @package News Show Pro GK5
 * @Copyright (C) 2009-2013 Gavick.com
 * @ All rights reserved
@@ -167,5 +167,5 @@ if($this->config['links_position'] != 'bottom' && $this->config['news_short_page
 		<?php endif; ?>
 	</div>
 <?php else : ?>
-	<p><?php echo JText::_('MOD_NEWS_PRO_GK5_NSP_ERROR'); ?></p>
+<?php /**	<p><?php echo JText::_('MOD_NEWS_PRO_GK5_NSP_ERROR'); ?></p> wywalamy info o błędzie **/ ?>
 <?php endif; ?>
