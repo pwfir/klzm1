@@ -14,7 +14,7 @@
 			</field>
 			<field name="gallery" type="spgallery" label="BLOG_POST_FORMAT_GALLERY_LABEL" description="BLOG_POST_FORMAT_GALLERY_DESCRIPTION" />
 			 <field name="gallery_caption" type="text" label="Caption" description="caption" default="archiwum" hint="Autor zdjęcia" /> 
-			 <field name="cap_yn" type="radio" class="btn-group btn-group-yesno" default="1" label="wyświetlać podpis?" description="Czy wyświetlić zawartość pola caption">
+			  <field name="cap_yn" type="radio" class="btn-group btn-group-yesno" default="1" label="wyświetlać podpis?" description="Czy wyświetlić zawartość pola caption">
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
@@ -25,6 +25,6 @@
 			<field name="quote_text" type="textarea" rows="5" label="BLOG_POST_FORMAT_QUOTE_TEXT_LABEL" description="BLOG_POST_FORMAT_QUOTE_TEXT_DESCRIPTION" class="input-xxlarge" filter="raw" />
 			<field name="quote_author" type="text" label="BLOG_POST_FORMAT_QUOTE_AUTHOR_LABEL" description="BLOG_POST_FORMAT_QUOTE_AUTHOR_DESCRIPTION" />
 			<field name="post_status" type="textarea" rows="5" label="BLOG_POST_FORMAT_STATUS_LABEL" description="BLOG_POST_FORMAT_STATUS_DESCRIPTION" class="input-xxlarge" filter="raw" />
-			</fieldset>
+		</fieldset>
 	</fields>
 </form>

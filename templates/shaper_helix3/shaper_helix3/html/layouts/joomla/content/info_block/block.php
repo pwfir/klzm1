@@ -3,7 +3,7 @@
  * @package     Joomla.Site
  * @subpackage  Layout
  *
- * @copyright   Copyright (C) 2005 - 2016 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -34,6 +34,9 @@ $blockPosition = $displayData['params']->get('info_block_position', 0);
 
 			<?php if ($displayData['params']->get('show_modify_date')) : ?>
 				<?php echo JLayoutHelper::render('joomla.content.info_block.modify_date', $displayData); ?>
+
+
+
 			<?php endif; ?>
 
 	
@@ -47,8 +50,11 @@ $blockPosition = $displayData['params']->get('info_block_position', 0);
 
 		
 
+
 				<?php if ($displayData['params']->get('show_author') && !empty($displayData['item']->author )) : ?>
 				<?php echo JLayoutHelper::render('joomla.content.info_block.author', $displayData); ?>
+
+
 			<?php endif; ?>
 
 
@@ -58,6 +64,13 @@ $blockPosition = $displayData['params']->get('info_block_position', 0);
 				|| $displayData['position'] == 'below' && ($blockPosition == 1 || $blockPosition == 2)
 				) : ?>
 			
+
+
+
+
+
+
+
 
 			<?php if ($displayData['params']->get('show_hits')) : ?>
 				<?php echo JLayoutHelper::render('joomla.content.info_block.hits', $displayData); ?>
@@ -72,5 +85,7 @@ $blockPosition = $displayData['params']->get('info_block_position', 0);
 	</div>
 	<?php endif; ?>
 		
+
 		
+
 	</dl>

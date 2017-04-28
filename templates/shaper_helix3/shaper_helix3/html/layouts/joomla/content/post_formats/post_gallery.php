@@ -7,7 +7,7 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-defined('JPATH_BASE') or die;
+ defined('JPATH_BASE') or die;
 JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
 $article = JTable::getInstance('content'); // pobranie danych do altów
 $article->load($displayData['item']->id); // pobranie danych do altów
@@ -32,13 +32,13 @@ if($displayData['params']->get('gallery')) {
 					
 						?>
 							<div class="item<?php echo ($key===0) ? ' active': ''; ?>">
-								<img src="<?php echo $image; ?>" alt="<?php if ($images->image_fulltext_alt != '') {echo htmlspecialchars($images->image_fulltext_alt);} else {echo  $article->get('title').'. Zdjęcie numer '.$i;}; ?>">
+								<img src="<?php echo $image; ?>" alt="<?php if ($images->image_fulltext_alt != '') {echo htmlspecialchars($images->image_fulltext_alt);} else {echo  htmlspecialchars($article->get('title')).'. Zdjęcie numer '.$i;}; ?>">
 							</div>
 						<?php
 					}
 				?>
 			</div>
-			<?php if ($displayData['params']->get('gallery_caption')!="") {
+			<?php if ($displayData['params']->get('gallery_caption')!="" && $displayData['params']->get('cap_yn')) {
 			  echo '<p class="pcap">'.$displayData['params']->get('gallery_caption').'</p>';
 			}?>
 			
