@@ -9,6 +9,14 @@
 //no direct accees
 defined('_JEXEC') or die('resticted aceess');
 
+/* BEGIN: Define DS */
+   if (!defined("DS")):
+      define("DS", DIRECTORY_SEPARATOR);
+   endif;
+
+/* END: Define DS */
+
+
 $doc = JFactory::getDocument();
 $app = JFactory::getApplication();
 
@@ -176,7 +184,7 @@ $doc->addScriptdeclaration("\nvar sp_offanimation = '" . $this->params->get('off
 
                     <!-- Off Canvas Menu -->
                     <div class="offcanvas-menu">
-                        <a href="#" class="close-offcanvas"><i class="fa fa-remove"></i></a>
+                        <a href="#" class="close-offcanvas"><span class="fa fa-remove"></span><span class="hide">Zamknij menu</span></a>
                         <div class="offcanvas-inner">
                             <?php if ($this->helix3->countModules('offcanvas')) { ?>
                               <jdoc:include type="modules" name="offcanvas" style="sp_xhtml" />
